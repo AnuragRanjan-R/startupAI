@@ -15,7 +15,7 @@ const Layout = ({ children, title, breadcrumb }: LayoutProps) => {
       <Header />
       
       {title && (
-        <div className="royal-gradient text-white relative overflow-hidden">
+        <div className="royal-gradient mt-4 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="container mx-auto px-4 py-12 text-center relative z-10">
             <h1 className="text-4xl font-bold mb-2 drop-shadow-lg">{title}</h1>
