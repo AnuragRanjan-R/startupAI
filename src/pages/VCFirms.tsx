@@ -82,7 +82,7 @@ const VCFirms = () => {
   ];
 
   return (
-    <Layout title="VC Firms Directory" breadcrumb="/database/vc">
+    <Layout title="VC Firms Directory">
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <p className="text-gray-600">

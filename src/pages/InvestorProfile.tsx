@@ -35,7 +35,7 @@ const InvestorProfile = () => {
   };
 
   return (
-    <Layout title="Investor Profile" breadcrumb={`/database/investor/${id}`}>
+    <Layout title="Investor Profile">
       <div className="space-y-8">
         {/* Back Button */}
         <Link 

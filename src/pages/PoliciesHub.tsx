@@ -83,7 +83,7 @@ const PoliciesHub = () => {
   ];
 
   return (
-    <Layout title="Policy Hub" breadcrumb="/policies">
+    <Layout title="Policy Hub">
       <div className="space-y-6">
         {/* Policy Categories Tabs */}
         <div className="flex gap-1 bg-gray-100 p-1 rounded-lg overflow-x-auto">

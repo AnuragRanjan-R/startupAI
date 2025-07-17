@@ -23,7 +23,7 @@ const PolicyDetail = () => {
   ];
 
   return (
-    <Layout title="Policy Detail" breadcrumb="/policies/[policy-id]">
+    <Layout title="Policy Detail">
       <div className="space-y-6">
         {/* Back Button */}
         <Link 
