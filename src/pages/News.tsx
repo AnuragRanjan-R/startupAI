@@ -61,7 +61,7 @@ const News = () => {
   ];
 
   return (
-    <Layout title="Startup News" breadcrumb="/news">
+    <Layout title="Startup News">
       <div className="space-y-6">
         {/* Filters */}
         <Card className="bg-white border-gray-200">

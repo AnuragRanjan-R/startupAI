@@ -39,7 +39,7 @@ const Events = () => {
   const eventDays = [4, 12, 13]; // Days with events
 
   return (
-    <Layout title="Events" breadcrumb="/events">
+    <Layout title="Events">
       <div className="space-y-6">
         {/* View Toggle */}
         <div className="flex justify-between items-center">

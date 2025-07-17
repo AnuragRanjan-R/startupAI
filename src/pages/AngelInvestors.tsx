@@ -82,7 +82,7 @@ const AngelInvestors = () => {
   ];
 
   return (
-    <Layout title="Angel Investors Directory" breadcrumb="/database/angels">
+    <Layout title="Angel Investors Directory">
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <p className="text-gray-600">

@@ -64,7 +64,7 @@ const Index = () => {
       name: "Sarah Johnson",
       title: "Managing Partner",
       company: "Royal Ventures",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
       focus: "AI & Deep Tech"
     },
     {
@@ -126,7 +126,7 @@ const Index = () => {
               <TrendingUp className="h-8 w-8 text-purple-600" />
               Premium News
             </h2>
-            <Link to="/news" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-lg font-semibold">
+            <Link to="/news" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-sm font-semibold">
               Explore All <ChevronRight className="h-5 w-5" />
             </Link>
           </div>
@@ -161,35 +161,71 @@ const Index = () => {
               <Crown className="h-8 w-8 text-purple-600" />
               Elite Investors
             </h2>
-            <Link to="/database/angels" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-lg font-semibold">
+            <Link to="/database/angels" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-sm font-semibold">
               View Directory <ChevronRight className="h-5 w-5" />
             </Link>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {featuredInvestors.map((investor) => (
-              <Card key={investor.id} className="royal-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-                <CardContent className="p-8 text-center">
-                  <div className="relative mb-6">
-                    <img 
-                      src={investor.image} 
-                      alt={investor.name}
-                      className="w-24 h-24 rounded-full object-cover mx-auto border-4 border-purple-200 shadow-lg group-hover:border-purple-400 transition-colors"
-                    />
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
+              <Card
+                key={investor.id}
+                className="relative group overflow-hidden rounded-2xl border-0 shadow-xl bg-white/60 backdrop-blur-lg flex flex-col md:flex-row p-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl
+                  md:items-stretch
+                  border-none
+                  md:bg-white/60
+                  md:shadow-xl
+                  md:backdrop-blur-lg
+                  md:p-0
+                  shadow-lg
+                  border border-purple-100/60
+                  bg-gradient-to-b from-purple-50/80 to-pink-50/60
+                "
+                style={{ boxShadow: '0 8px 32px 0 rgba(76,0,255,0.10)' }}
+              >
+                {/* Image Section */}
+                <div className="flex-shrink-0 flex items-center justify-center md:w-40 p-5 md:p-0 md:pl-6 relative
+                  flex-col w-full md:w-auto
+                ">
+                  <div className="relative flex flex-col items-center justify-center w-full">
+                    <div className="w-24 h-24 md:w-24 md:h-24 rounded-full bg-white/30 p-1 shadow-lg flex items-center justify-center mx-auto
+                      md:w-24 md:h-24
+                      w-28 h-28
+                      ring-4 ring-purple-200/60
+                      ">
+                      <img
+                        src={investor.image}
+                        alt={investor.name}
+                        className="w-full h-full rounded-full object-cover border-2 border-white shadow-xl group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-tr from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center shadow-md animate-pulse border-2 border-white">
                       <Crown className="h-4 w-4 text-white" />
                     </div>
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-1 group-hover:text-purple-700 transition-colors">{investor.name}</h3>
-                  <p className="text-purple-600 font-medium text-sm mb-2">{investor.title}</p>
-                  <p className="text-gray-600 text-sm mb-4">{investor.company}</p>
-                  <div className="bg-purple-50 rounded-lg p-3 mb-6">
-                    <p className="text-purple-700 font-medium text-sm">{investor.focus}</p>
+                </div>
+                {/* Details Section */}
+                <CardContent className="relative z-10 flex-1 flex flex-col justify-between p-4 md:pl-0 md:pr-8 md:p-6 text-center md:text-left
+                  items-center md:items-start
+                  ">
+                  <div className="w-full flex flex-col gap-2 md:gap-0">
+                    <h3 className="font-extrabold text-gray-900 text-lg group-hover:text-purple-700 transition-colors tracking-tight mb-1 md:mb-0">
+                      {investor.name}
+                    </h3>
+                    <p className="text-purple-600 font-medium text-base md:text-sm mb-1">{investor.title} <span className="text-gray-500 text-xs mb-2 md:mb-3">{investor.company}</span> </p>
+        
+                    <span className="inline-block bg-gradient-to-r from-purple-100/80 to-pink-100/60 text-purple-700 font-semibold text-sm rounded-md px-4 py-1 mb-3 shadow-inner">
+                      {investor.focus}
+                    </span>
                   </div>
-                  <div className="flex gap-2 justify-center">
-                    <Button variant="outline" size="sm" className="border-purple-300 text-purple-700 hover:bg-purple-50">
+                  <div className="flex flex-col md:flex-row gap-2 w-full mt-2 md:mt-4">
+                    <Button variant="outline" size="sm" className="border-purple-300 border  text-purple-700 hover:bg-purple-50 w-full md:w-auto">
                       View Profile
                     </Button>
+                  </div>
+                  {/* Shine/gradient hover overlay */}
+                  <div className="absolute left-0 top-0 w-full h-full pointer-events-none group-hover:opacity-100 opacity-0 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-purple-200/10 rounded-2xl blur-lg" />
                   </div>
                 </CardContent>
               </Card>
@@ -204,7 +240,7 @@ const Index = () => {
               <Calendar className="h-8 w-8 text-purple-600" />
               Exclusive Events
             </h2>
-            <Link to="/events" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-lg font-semibold">
+            <Link to="/events" className="text-purple-600 hover:text-purple-700 flex items-center gap-2 text-sm font-semibold">
               View Calendar <ChevronRight className="h-5 w-5" />
             </Link>
           </div>
