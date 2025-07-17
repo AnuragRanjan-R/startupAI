@@ -9,6 +9,8 @@ import {
   SignedOut,
   SignInButton,
   UserButton,
+  useUser,
+  useClerk,
 } from "@clerk/clerk-react";
 import {
   DropdownMenu,
@@ -21,6 +23,8 @@ const Header = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isLoaded, user } = useUser();
+  const { signOut, openUserProfile } = useClerk();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,12 +40,12 @@ const Header = () => {
 
   return (
     <div className='w-full flex items-center justify-center'>
-      <header 
-        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${ isScrolled ? 'bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-lg lg:px-5' : '' }`}
+      <header
+        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${isScrolled ? 'bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-lg lg:px-5' : ''}`}
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between">
-            
+
             {/* Minimal Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative">
@@ -55,7 +59,7 @@ const Header = () => {
             </Link>
 
             {/* Mobile Search */}
-            <div className="md:hidden flex-1 flex items-center justify-center mx-4">
+            <div className="md:hidden flex-1 flex flex-row gap-2 items-center justify-center mx-4">
               <div className="relative w-full max-w-xs">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
@@ -63,17 +67,28 @@ const Header = () => {
                   className="pl-10 w-full bg-gray-50/80 border-0 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9 text-sm"
                 />
               </div>
+              <SignedIn>
+                  <div className="flex items-center justify-center z-50">
+                    <UserButton
+                      appearance={{
+                        elements: {
+                          avatarBox: "w-8 h-8 rounded-full border-2 border-gray-200"
+                        }
+                      }}
+                    />
+                  </div>
+                </SignedIn>
+
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/news"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/news")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/news")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 News
                 {isActive("/news") && (
@@ -83,11 +98,10 @@ const Header = () => {
 
               <Link
                 to="/events"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/events")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/events")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 Events
                 {isActive("/events") && (
@@ -96,12 +110,11 @@ const Header = () => {
               </Link>
 
               <DropdownMenu>
-                <DropdownMenuTrigger className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${
-                  isActive("/database")
+                <DropdownMenuTrigger className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${isActive("/database")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}>
-                  Database 
+                  }`}>
+                  Database
                   <ChevronDown className="h-3 w-3" />
                   {isActive("/database") && (
                     <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
@@ -117,8 +130,8 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link 
-                      to="/database/vc" 
+                    <Link
+                      to="/database/vc"
                       className="w-full hover:bg-gray-50 rounded-lg text-gray-700 hover:text-gray-900 transition-colors"
                     >
                       VC Firms
@@ -129,11 +142,10 @@ const Header = () => {
 
               <Link
                 to="/policies"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/policies")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/policies")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 Policies Hub
                 {isActive("/policies") && (
@@ -168,14 +180,14 @@ const Header = () => {
                   className="pl-10 w-64 bg-gray-50/80 border-0 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9"
                 />
               </div>
-              
+
               <SignedOut>
                 <Button className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-6 h-9 rounded-full transition-all duration-200 shadow-sm hover:shadow-md">
                   <SignInButton />
                 </Button>
               </SignedOut>
               <SignedIn>
-                <UserButton 
+                <UserButton
                   appearance={{
                     elements: {
                       avatarBox: "w-8 h-8 rounded-full border-2 border-gray-200 hover:border-purple-300 transition-colors"
@@ -190,12 +202,13 @@ const Header = () => {
               <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="p-2 hover:bg-gray-100 rounded-full">
-                    <Menu className="h-5 w-5 text-gray-700" />
+                    <Menu className="h-8 w-8 text-gray-700" />
                   </Button>
+
                 </SheetTrigger>
                 <SheetContent side="right" className="p-0 w-80 bg-white/95 backdrop-blur-xl border-l border-gray-200/50">
                   <div className="flex flex-col h-full">
-                    
+
                     {/* Mobile Header */}
                     <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
                       <div className="flex items-center gap-3">
@@ -204,42 +217,40 @@ const Header = () => {
                           Startup Insights
                         </span>
                       </div>
-                      <Button
+                      {/* <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="p-2 hover:bg-gray-100 rounded-full"
                       >
                         <X className="h-4 w-4 text-gray-700" />
-                      </Button>
+                      </Button> */}
                     </div>
 
                     {/* Mobile Navigation */}
                     <nav className="flex flex-col px-6 py-4 space-y-1">
                       <Link
                         to="/news"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/news")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/news")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         News
                       </Link>
-                      
+
                       <Link
                         to="/events"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/events")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/events")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Events
                       </Link>
-                      
+
                       <div className="py-2">
                         <span className="block text-xs text-gray-400 mb-2 px-4">Database</span>
                         <Link
@@ -257,19 +268,18 @@ const Header = () => {
                           VC Firms
                         </Link>
                       </div>
-                      
+
                       <Link
                         to="/policies"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/policies")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/policies")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Policies Hub
                       </Link>
-                      
+
                       <div className="py-2">
                         <span className="block text-xs text-gray-400 mb-2 px-4">Resources</span>
                         <div className="space-y-1">
@@ -293,26 +303,18 @@ const Header = () => {
                           <SignInButton />
                         </Button>
                       </SignedOut>
-                      <SignedIn>
-                        <div className="flex items-center justify-center">
-                          <UserButton 
-                            appearance={{
-                              elements: {
-                                avatarBox: "w-10 h-10 rounded-full border-2 border-gray-200"
-                              }
-                            }}
-                          />
-                        </div>
-                      </SignedIn>
+
                     </div>
                   </div>
                 </SheetContent>
+                
+                
               </Sheet>
             </div>
           </div>
         </div>
       </header>
-      
+
       {/* Spacer for fixed header */}
       <div className="h-16" />
     </div>
