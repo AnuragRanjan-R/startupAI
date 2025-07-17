@@ -204,14 +204,6 @@ const Header = () => {
                           Startup Insights
                         </span>
                       </div>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="p-2 hover:bg-gray-100 rounded-full"
-                      >
-                        <X className="h-4 w-4 text-gray-700" />
-                      </Button>
                     </div>
 
                     {/* Mobile Navigation */}
