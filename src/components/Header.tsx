@@ -56,10 +56,10 @@ const Header = () => {
             {/* Mobile Search */}
             <div className="md:hidden flex-1 flex flex-row gap-2 items-center justify-center mx-4">
               <div className="relative w-full max-w-xs">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 <Input
                   placeholder="Search..."
-                  className="pl-10 w-full bg-gray-50/80 border-0 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9 text-sm"
+                  className="pl-10 w-full bg-gray-100/80 border-1 border-gray-200 text-gray-500 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9 text-sm"
                 />
               </div>
               <SignedIn>
