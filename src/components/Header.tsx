@@ -48,13 +48,8 @@ const Header = () => {
 
             {/* Minimal Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <Crown className="h-7 w-7 text-gray-900 group-hover:text-purple-600 transition-colors duration-300" />
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-xl font-semibold text-gray-900 tracking-tight">
-                  Startup Insights
-                </span>
+              <div className="relative ">
+                <img src='/Startup HUB.png' alt="Startup HUB Logo" className="h-10 object-contain" />
               </div>
             </Link>
 
