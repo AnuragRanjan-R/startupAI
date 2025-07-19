@@ -1,7 +1,6 @@
-
-import { ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import { ReactNode } from 'react';
+import Footer from './Footer';
+import Header from './Header';
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +12,7 @@ const Layout = ({ children, title, breadcrumb }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-purple-100/20">
       <Header />
-      
+
       {title && (
         <div className="royal-gradient mt-4 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -27,11 +26,9 @@ const Layout = ({ children, title, breadcrumb }: LayoutProps) => {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-32 -translate-x-32"></div>
         </div>
       )}
-      
-      <main className="container mx-auto px-4 py-12">
-        {children}
-      </main>
-      
+
+      <main className="container w-full px-1 py-12">{children}</main>
+
       <Footer />
     </div>
   );
