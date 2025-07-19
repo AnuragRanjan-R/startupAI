@@ -1,4 +1,5 @@
 import { Crown, Linkedin, Twitter, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -11,8 +12,11 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div className="flex-1 min-w-[200px] flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <Crown className="h-8 w-8 text-purple-400 drop-shadow-lg" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Startup Insights</span>
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="relative ">
+                  <img src='/Startup HUB.png' alt="Startup HUB Logo" className="h-10 object-contain" />
+                </div>
+              </Link>
             </div>
             <p className="text-gray-300 text-sm max-w-xs">
               Your premier destination for startup ecosystem insights, investor connections, and policy updates.
@@ -29,10 +33,10 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4 text-purple-300">Quick Links</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="/news" className="hover:text-purple-300 transition-colors">News</a></li>
-                <li><a href="/events" className="hover:text-purple-300 transition-colors">Events</a></li>
-                <li><a href="/database" className="hover:text-purple-300 transition-colors">Database</a></li>
-                <li><a href="/policies" className="hover:text-purple-300 transition-colors">Policies</a></li>
+                <li><a href="/" className="hover:text-purple-300 transition-colors">News</a></li>
+                <li><a href="/" className="hover:text-purple-300 transition-colors">Events</a></li>
+                <li><a href="/" className="hover:text-purple-300 transition-colors">Database</a></li>
+                <li><a href="/" className="hover:text-purple-300 transition-colors">Policies</a></li>
               </ul>
             </div>
             <div>
