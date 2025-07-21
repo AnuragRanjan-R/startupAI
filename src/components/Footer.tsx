@@ -60,7 +60,7 @@ const Footer = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
                   <a
-                    href="/"
+                    href="/news"
                     className="hover:text-purple-300 transition-colors"
                   >
                     News
@@ -68,7 +68,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/"
+                    href="/events"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Events
@@ -76,15 +76,23 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/"
+                    href="/database/angels"
                     className="hover:text-purple-300 transition-colors"
                   >
-                    Database
+                    Investors
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/"
+                    href="/database/vc"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    VC Firms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/policies"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Policies
@@ -97,7 +105,7 @@ const Footer = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
                   <a
-                    href="#"
+                    href="/resources/guides"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Guides
@@ -105,7 +113,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/resources/reports"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Reports
@@ -113,18 +121,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/resources/tools"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Tools
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-purple-300 transition-colors"
-                  >
-                    Blog
                   </a>
                 </li>
               </ul>
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-purple-800/40 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-gray-400 text-xs">
-          <span>© 2024 Startup Insights. All rights reserved.</span>
+          <span>© 2025 Startup Hub. All rights reserved.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-purple-300 transition-colors">
               Privacy Policy
