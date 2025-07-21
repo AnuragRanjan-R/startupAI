@@ -176,19 +176,17 @@ const Index = () => {
                   md:bg-white/60
                   md:shadow-xl
                   md:backdrop-blur-lg
-                  md:p-0
-                  shadow-lg
-                  border border-purple-100/60
+                  md:p-0 border-purple-100/60
                   bg-gradient-to-b from-purple-50/80 to-pink-50/60
                 "
                 style={{ boxShadow: '0 8px 32px 0 rgba(76,0,255,0.10)' }}
               >
                 {/* Image Section */}
                 <div className="flex-shrink-0 flex items-center justify-center md:w-40 p-5 md:p-0 md:pl-6 relative
-                  flex-col w-full md:w-auto
+                  flex-col w-full
                 ">
                   <div className="relative flex flex-col items-center justify-center w-full">
-                    <div className="w-24 h-24 md:w-24 md:h-24 rounded-full bg-white/30 p-1 shadow-lg flex items-center justify-center mx-auto
+                    <div className="rounded-full bg-white/30 p-1 shadow-lg flex items-center justify-center mx-auto
                       md:w-24 md:h-24
                       w-28 h-28
                       ring-4 ring-purple-200/60
