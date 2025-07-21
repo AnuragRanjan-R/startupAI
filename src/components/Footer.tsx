@@ -27,27 +27,27 @@ const Footer = () => {
               connections, and policy updates.
             </p>
             <div className="flex gap-3 mt-2">
-              <a
-                href="#"
+              <Link
+                to="#"
                 aria-label="LinkedIn"
                 className="hover:text-purple-300 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 aria-label="Twitter"
                 className="hover:text-purple-300 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 aria-label="Email"
                 className="hover:text-purple-300 transition-colors"
               >
                 <Mail className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -59,44 +59,44 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
-                  <a
-                    href="/news"
+                  <Link
+                    to="/news"
                     className="hover:text-purple-300 transition-colors"
                   >
                     News
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/events"
+                  <Link
+                    to="/events"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Events
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/database/angels"
+                  <Link
+                    to="/database/angels"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Investors
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/database/vc"
+                  <Link
+                    to="/database/vc"
                     className="hover:text-purple-300 transition-colors"
                   >
                     VC Firms
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/policies"
+                  <Link
+                    to="/policies"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Policies
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -104,28 +104,28 @@ const Footer = () => {
               <h4 className="font-semibold mb-4 text-purple-300">Resources</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
-                  <a
-                    href="/resources/guides"
+                  <Link
+                    to="/resources/guides"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Guides
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/resources/reports"
+                  <Link
+                    to="/resources/reports"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Reports
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/resources/tools"
+                  <Link
+                    to="/resources/tools"
                     className="hover:text-purple-300 transition-colors"
                   >
                     Tools
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -157,12 +157,12 @@ const Footer = () => {
         <div className="border-t border-purple-800/40 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-gray-400 text-xs">
           <span>© 2025 Startup Hub. All rights reserved.</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-purple-300 transition-colors">
+            <Link to="#" className="hover:text-purple-300 transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-purple-300 transition-colors">
+            </Link>
+            <Link to="#" className="hover:text-purple-300 transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
