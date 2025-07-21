@@ -776,9 +776,9 @@ const AngelInvestors = () => {
                             className={`border-b border-gray-100 hover:bg-blue-50 hover:shadow-sm cursor-pointer transition-all duration-200 ${
                               idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'
                             }`}
-                            onClick={() =>
-                              navigate(`/database/investor/${investor.id}`)
-                            }
+                            // onClick={() =>
+                            //   navigate(`/database/investor/${investor.id}`)
+                            // }
                           >
                             <td className="py-4 px-4 lg:px-6">
                               <div className="flex items-center gap-3">

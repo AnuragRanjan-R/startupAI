@@ -1,12 +1,12 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   SignedIn,
   SignedOut,
@@ -14,7 +14,7 @@ import {
   useClerk,
   UserButton,
   useUser,
-} from '@clerk/clerk-react';
+} from "@clerk/clerk-react";
 import {
   BarChart3,
   ChevronDown,
@@ -23,9 +23,9 @@ import {
   Menu,
   Search,
   Wrench,
-} from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
@@ -39,8 +39,8 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isActive = (path) => {
@@ -52,8 +52,8 @@ const Header = () => {
       <header
         className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${
           isScrolled
-            ? 'bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-lg lg:px-5'
-            : ''
+            ? "bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-xl lg:px-5"
+            : ""
         }`}
       >
         <div className="container mx-auto px-4 lg:px-6">
@@ -62,7 +62,7 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative ">
                 <img
-                  src="/Startup HUB.png"
+                  src="/StartupHUB.png"
                   alt="Startup HUB Logo"
                   className="h-10 object-contain"
                 />
@@ -84,7 +84,7 @@ const Header = () => {
                     appearance={{
                       elements: {
                         avatarBox:
-                          'w-8 h-8 rounded-full border-2 border-gray-200',
+                          "w-8 h-8 rounded-full border-2 border-gray-200",
                       },
                     }}
                   />
@@ -97,13 +97,13 @@ const Header = () => {
               <Link
                 to="/news"
                 className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive('/news')
-                    ? 'text-gray-900'
-                    : 'text-gray-600 hover:text-gray-900'
+                  isActive("/news")
+                    ? "text-gray-900"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 News
-                {isActive('/news') && (
+                {isActive("/news") && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
@@ -111,13 +111,13 @@ const Header = () => {
               <Link
                 to="/events"
                 className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive('/events')
-                    ? 'text-gray-900'
-                    : 'text-gray-600 hover:text-gray-900'
+                  isActive("/events")
+                    ? "text-gray-900"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 Events
-                {isActive('/events') && (
+                {isActive("/events") && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
@@ -125,14 +125,14 @@ const Header = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${
-                    isActive('/database')
-                      ? 'text-gray-900'
-                      : 'text-gray-600 hover:text-gray-900'
+                    isActive("/database")
+                      ? "text-gray-900"
+                      : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   Database
                   <ChevronDown className="h-3 w-3" />
-                  {isActive('/database') && (
+                  {isActive("/database") && (
                     <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                   )}
                 </DropdownMenuTrigger>
@@ -159,13 +159,13 @@ const Header = () => {
               <Link
                 to="/policies"
                 className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive('/policies')
-                    ? 'text-gray-900'
-                    : 'text-gray-600 hover:text-gray-900'
+                  isActive("/policies")
+                    ? "text-gray-900"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 Policies Hub
-                {isActive('/policies') && (
+                {isActive("/policies") && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
@@ -225,7 +225,7 @@ const Header = () => {
               </div>
 
               <SignedOut>
-                <Button className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-6 h-9 rounded-full transition-all duration-200 shadow-sm hover:shadow-md">
+                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
                   <SignInButton />
                 </Button>
               </SignedOut>
@@ -234,7 +234,7 @@ const Header = () => {
                   appearance={{
                     elements: {
                       avatarBox:
-                        'w-8 h-8 rounded-full border-2 border-gray-200 hover:border-purple-300 transition-colors',
+                        "w-8 h-8 rounded-full border-2 border-gray-200 hover:border-purple-300 transition-colors",
                     },
                   }}
                 />
@@ -281,9 +281,9 @@ const Header = () => {
                       <Link
                         to="/news"
                         className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive('/news')
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                          isActive("/news")
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -293,9 +293,9 @@ const Header = () => {
                       <Link
                         to="/events"
                         className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive('/events')
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                          isActive("/events")
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -325,9 +325,9 @@ const Header = () => {
                       <Link
                         to="/policies"
                         className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive('/policies')
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                          isActive("/policies")
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -371,7 +371,7 @@ const Header = () => {
                     {/* Mobile Auth */}
                     <div className="mt-auto px-6 py-6 border-t border-gray-100">
                       <SignedOut>
-                        <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium h-11 rounded-xl transition-all duration-200">
+                        <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
                           <SignInButton />
                         </Button>
                       </SignedOut>

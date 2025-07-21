@@ -14,57 +14,155 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <Link to="/" className="flex items-center gap-3 group">
                 <div className="relative ">
-                  <img src='/Startup HUB.png' alt="Startup HUB Logo" className="h-10 object-contain" />
+                  <img
+                    src="/StartupHUB.png"
+                    alt="Startup HUB Logo"
+                    className="h-10 object-contain"
+                  />
                 </div>
               </Link>
             </div>
             <p className="text-gray-300 text-sm max-w-xs">
-              Your premier destination for startup ecosystem insights, investor connections, and policy updates.
+              Your premier destination for startup ecosystem insights, investor
+              connections, and policy updates.
             </p>
             <div className="flex gap-3 mt-2">
-              <a href="#" aria-label="LinkedIn" className="hover:text-purple-300 transition-colors"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" aria-label="Twitter" className="hover:text-purple-300 transition-colors"><Twitter className="h-5 w-5" /></a>
-              <a href="#" aria-label="Email" className="hover:text-purple-300 transition-colors"><Mail className="h-5 w-5" /></a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="hover:text-purple-300 transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="hover:text-purple-300 transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                aria-label="Email"
+                className="hover:text-purple-300 transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
           {/* Quick Links & Resources */}
           <div className="flex-1 grid grid-cols-2 gap-8 min-w-[200px]">
             <div>
-              <h4 className="font-semibold mb-4 text-purple-300">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-purple-300">
+                Quick Links
+              </h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="/" className="hover:text-purple-300 transition-colors">News</a></li>
-                <li><a href="/" className="hover:text-purple-300 transition-colors">Events</a></li>
-                <li><a href="/" className="hover:text-purple-300 transition-colors">Database</a></li>
-                <li><a href="/" className="hover:text-purple-300 transition-colors">Policies</a></li>
+                <li>
+                  <a
+                    href="/"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    News
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Database
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Policies
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-purple-300">Resources</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="#" className="hover:text-purple-300 transition-colors">Guides</a></li>
-                <li><a href="#" className="hover:text-purple-300 transition-colors">Reports</a></li>
-                <li><a href="#" className="hover:text-purple-300 transition-colors">Tools</a></li>
-                <li><a href="#" className="hover:text-purple-300 transition-colors">Blog</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Guides
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Reports
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Tools
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-purple-300 transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
 
           {/* Newsletter */}
           <div className="flex-1 min-w-[220px] flex flex-col gap-4">
-            <h4 className="font-semibold mb-4 text-purple-300">Stay in the loop</h4>
-            <p className="text-gray-400 text-sm mb-2">Subscribe to our newsletter for the latest updates.</p>
+            <h4 className="font-semibold mb-4 text-purple-300">
+              Stay in the loop
+            </h4>
+            <p className="text-gray-400 text-sm mb-2">
+              Subscribe to our newsletter for the latest updates.
+            </p>
             <form className="flex gap-2">
-              <Input type="email" placeholder="Your email" className="bg-white/10 border border-purple-400/30 text-white placeholder:text-gray-400 focus:border-purple-400 focus:ring-purple-400/20" />
-              <Button type="submit" className="royal-gradient text-white font-semibold px-4">Subscribe</Button>
+              <Input
+                type="email"
+                placeholder="Your email"
+                className="bg-white/10 border border-purple-400/30 text-white placeholder:text-gray-400 focus:border-purple-400 focus:ring-purple-400/20"
+              />
+              <Button
+                type="submit"
+                className="royal-gradient text-white font-semibold px-4"
+              >
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>
         <div className="border-t border-purple-800/40 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-gray-400 text-xs">
           <span>© 2024 Startup Insights. All rights reserved.</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-purple-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-purple-300 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-purple-300 transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-purple-300 transition-colors">
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
