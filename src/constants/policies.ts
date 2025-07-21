@@ -615,3 +615,16 @@ export const policies: Policy[] = [
     website: "www.startup.maharashtra.gov.in"
   }
 ];
+
+
+export type Tcategories = {
+  key: string,
+  label: string
+}
+
+export const categories: Tcategories[] = [
+{ key: 'central', label: 'Central Govt' },
+{ key: 'state', label: 'State' },
+{ key: 'tax', label: 'Tax' },
+{ key: 'sector', label: 'Sector' },
+];

@@ -62,11 +62,11 @@ const getInitials = (name: string) => {
     .toUpperCase();
 };
 
-const sortOptions = [
-  { key: 'name', label: 'Name' },
-  { key: 'location', label: 'Location' },
-  { key: 'stage', label: 'Stage' },
-];
+// const sortOptions = [
+//   { key: 'name', label: 'Name' },
+//   { key: 'location', label: 'Location' },
+//   { key: 'stage', label: 'Stage' },
+// ];
 
 type SortState = {
   key: string;
@@ -583,7 +583,7 @@ const AngelInvestors = () => {
                 disabled={!user}
               >
                 <Download className="h-4 w-4" />
-                Export CSV
+                {!user ? "Sign In to Export " : "Export as CSV"} 
               </Button>
             ) : (
               <Tooltip>
@@ -596,7 +596,7 @@ const AngelInvestors = () => {
                       disabled={!user}
                     >
                       <Download className="h-4 w-4" />
-                      Export CSV
+                      {!user ? "Sign In to Export " : "Export as CSV"} 
                     </Button>
                   </span>
                 </TooltipTrigger>
