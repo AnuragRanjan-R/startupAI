@@ -537,7 +537,7 @@ const AngelInvestors = () => {
 
   return (
     <Layout title="Angel Investors Directory">
-      <div className="space-y-6 w-full max-w-full overflow-x-hidden bg-gray-50 min-h-screen">
+      <div className="space-y-6 w-full px-3 md:px-8 max-w-full overflow-x-hidden bg-gray-50 min-h-screen">
         {/* Header Section */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 lg:p-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">

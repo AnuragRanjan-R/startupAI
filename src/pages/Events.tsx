@@ -102,7 +102,7 @@ const Events = () => {
           )}
         </DialogContent>
       </Dialog>
-      <div className="space-y-6">
+      <div className="space-y-6 px-3 md:px-8">
         {/* Event Type Filter */}
         <div className="hidden md:flex gap-2 mb-2">
           {eventTypes.map(type => (

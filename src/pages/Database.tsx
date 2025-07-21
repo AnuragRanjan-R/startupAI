@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 const Database = () => {
   return (
     <Layout>
-      <div className="space-y-8">
+      <div className="space-y-8 md:px-8 px-3">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Startup Database</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">

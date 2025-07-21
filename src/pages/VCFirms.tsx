@@ -271,7 +271,7 @@ const VCFirms = () => {
                   disabled={!user || exporting}
                 >
                   <Download className="h-4 w-4" />
-                  Export CSV
+                  {!user ? 'Sign In to Export ' : 'Export as CSV'}
                 </Button>
               </span>
             </TooltipTrigger>
