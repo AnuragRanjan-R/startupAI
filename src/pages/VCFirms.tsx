@@ -255,7 +255,7 @@ const VCFirms = () => {
   // Responsive filter sidebar/collapse
   return (
     <Layout title="VC Firms Directory">
-      <div className="space-y-8 px-2 md:px-4">
+      <div className="space-y-8 px-3 md:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-gray-600 text-base md:text-lg">
             Explore venture capital firms, their investment focus, and recent
