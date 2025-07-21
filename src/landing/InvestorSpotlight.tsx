@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Briefcase, Target, ArrowRight } from "lucide-react";
 import { investors } from "@/constants/angelInvestors";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const InvestorSpotlight = () => {
   // Select top 6 featured investors (you can modify this selection logic as needed)
@@ -67,14 +68,14 @@ const InvestorSpotlight = () => {
                     </div>
                   </div>
 
-                  <button
-                    className="mt-4 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 rounded-md hover:opacity-90 transition-opacity"
-                    onClick={() =>
-                      (window.location.href = `/database/angels`)
-                    }
+                  <Link
+                    to={`/database/angels`}
+                    className="text-indigo-600 hover:underline text-sm"
                   >
-                    View Profile
-                  </button>
+                    <button className="mt-4 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 rounded-md hover:opacity-90 transition-opacity">
+                      More Details
+                    </button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

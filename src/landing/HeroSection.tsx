@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="flex-1 border-none text-gray-700 placeholder:text-gray-400 bg-transparent px-4 focus:outline-none focus-visible:ring-0"
+                className="flex-1 border-none text-gray-700 placeholder:text-gray-400 max-md:placeholder:text-xs bg-transparent px-4 focus:outline-none focus-visible:ring-0"
               />
               <Button
                 onClick={handleSearch}
