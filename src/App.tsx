@@ -17,6 +17,7 @@ import ResourceReports from './pages/ResourceReports';
 import Resources from './pages/Resources';
 import ResourceTools from './pages/ResourceTools';
 import VCFirms from './pages/VCFirms';
+import Landing from './landing/Landing';
 
 const queryClient = new QueryClient();
 
@@ -27,7 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/news" element={<News />} />
           <Route path="/events" element={<Events />} />
           <Route path="/database" element={<Database />} />
