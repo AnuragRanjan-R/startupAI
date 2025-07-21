@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-purple-800/40 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-gray-400 text-xs">
-          <span>© 2025 Startup Hub. All rights reserved.</span>
+          <span>© 2025 Start Hub. All rights reserved.</span>
           <div className="flex gap-4">
             <Link to="#" className="hover:text-purple-300 transition-colors">
               Privacy Policy
