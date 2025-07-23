@@ -50,11 +50,10 @@ const Header = () => {
   return (
     <div className="w-full flex items-center justify-center">
       <header
-        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${
-          isScrolled
+        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${isScrolled
             ? "bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-xl lg:px-5"
             : ""
-        }`}
+          }`}
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between">
@@ -96,11 +95,10 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/news"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/news")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/news")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 News
                 {isActive("/news") && (
@@ -110,11 +108,10 @@ const Header = () => {
 
               <Link
                 to="/events"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/events")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/events")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 Events
                 {isActive("/events") && (
@@ -124,11 +121,10 @@ const Header = () => {
 
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${
-                    isActive("/database")
+                  className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${isActive("/database")
                       ? "text-gray-900"
                       : "text-gray-600 hover:text-gray-900"
-                  }`}
+                    }`}
                 >
                   Database
                   <ChevronDown className="h-3 w-3" />
@@ -158,11 +154,10 @@ const Header = () => {
 
               <Link
                 to="/policies"
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  isActive("/policies")
+                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/policies")
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 Policies Hub
                 {isActive("/policies") && (
@@ -261,10 +256,16 @@ const Header = () => {
                     {/* Mobile Header */}
                     <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
                       <div className="flex items-center gap-3">
-                        <Crown className="h-6 w-6 text-gray-900" />
-                        <span className="text-lg font-semibold text-gray-900">
-                          Startup Insights
-                        </span>
+                        <Link to="/" className="flex items-center gap-3 group">
+                          <div className="relative ">
+                            <img
+                              src="/StartupHUB.png"
+                              alt="Startup HUB Logo"
+                              className="h-10 object-contain"
+                            />
+                          </div>
+                        </Link>
+
                       </div>
                       {/* <Button
                         variant="ghost"
@@ -280,11 +281,10 @@ const Header = () => {
                     <nav className="flex flex-col px-6 py-4 space-y-1">
                       <Link
                         to="/news"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/news")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/news")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         News
@@ -292,11 +292,10 @@ const Header = () => {
 
                       <Link
                         to="/events"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/events")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/events")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Events
@@ -324,11 +323,10 @@ const Header = () => {
 
                       <Link
                         to="/policies"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
-                          isActive("/policies")
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/policies")
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
+                          }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Policies Hub
