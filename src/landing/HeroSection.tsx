@@ -1,53 +1,41 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { useGlobalSearch } from '@/hooks/useGlobalSearch';
 import {
-  Search,
   ArrowRight,
+  Building2,
+  Calendar,
+  Search,
   Sparkles,
   TrendingUp,
   Users,
-  Building2,
-  Calendar,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
+} from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = () => {
-    if (searchQuery.trim()) {
-      // Navigate to news page with search query
-      window.location.href = `/news?search=${encodeURIComponent(searchQuery)}`;
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
+  const { search, setSearch, handleSearch } = useGlobalSearch();
 
   const stats = [
     {
       icon: Users,
-      label: "Angel Investors",
-      value: "100+",
-      color: "text-blue-600",
+      label: 'Angel Investors',
+      value: '100+',
+      color: 'text-blue-600',
     },
     {
       icon: Building2,
-      label: "VC Firms",
-      value: "50+",
-      color: "text-purple-600",
+      label: 'VC Firms',
+      value: '50+',
+      color: 'text-purple-600',
     },
-    { icon: Calendar, label: "Events", value: "20+", color: "text-green-600" },
+    { icon: Calendar, label: 'Events', value: '20+', color: 'text-green-600' },
     {
       icon: TrendingUp,
-      label: "Policies",
-      value: "200+",
-      color: "text-orange-600",
+      label: 'Policies',
+      value: '200+',
+      color: 'text-orange-600',
     },
   ];
 
@@ -70,11 +58,11 @@ const HeroSection: React.FC = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Connect with{" "}
+              Connect with{' '}
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                 Elite Investors
-              </span>{" "}
-              & Discover{" "}
+              </span>{' '}
+              & Discover{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Opportunities
               </span>
@@ -93,9 +81,9 @@ const HeroSection: React.FC = () => {
               <Search className="w-5 h-5 text-gray-400 ml-4" />
               <Input
                 placeholder="Search for news, events, investors,  or policies..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={handleKeyPress}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 className="flex-1 border-none text-gray-700 placeholder:text-gray-400 max-md:placeholder:text-xs bg-transparent px-4 focus:outline-none focus-visible:ring-0"
               />
               <Button
@@ -103,7 +91,7 @@ const HeroSection: React.FC = () => {
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Search
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>
           </div>

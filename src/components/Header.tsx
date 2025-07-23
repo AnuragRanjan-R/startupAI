@@ -1,12 +1,13 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useGlobalSearch } from '@/hooks/useGlobalSearch';
 import {
   SignedIn,
   SignedOut,
@@ -14,18 +15,17 @@ import {
   useClerk,
   UserButton,
   useUser,
-} from "@clerk/clerk-react";
+} from '@clerk/clerk-react';
 import {
   BarChart3,
   ChevronDown,
-  Crown,
   FileText,
   Menu,
   Search,
   Wrench,
-} from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const location = useLocation();
@@ -34,13 +34,14 @@ const Header = () => {
   const { isLoaded, user } = useUser();
   const { signOut, openUserProfile } = useClerk();
   const [resourcesModalOpen, setResourcesModalOpen] = useState(false);
+  const { search, setSearch, handleSearch } = useGlobalSearch();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const isActive = (path) => {
@@ -50,10 +51,11 @@ const Header = () => {
   return (
     <div className="w-full flex items-center justify-center">
       <header
-        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${isScrolled
-            ? "bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-xl lg:px-5"
-            : ""
-          }`}
+        className={`fixed top-0 z-50 mt-3 py-4 bg-transparent w-[90%] max-w-[95%] transition-all duration-300 lg:px-12 ${
+          isScrolled
+            ? 'bg-white/50 max-w-[80%] rounded-2xl border backdrop-blur-xl lg:px-5'
+            : ''
+        }`}
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between">
@@ -70,11 +72,14 @@ const Header = () => {
 
             {/* Mobile Search */}
             <div className="md:hidden flex-1 flex flex-row gap-2 items-center justify-center mx-4">
-              <div className="relative w-full max-w-xs">
+              <div className="relative w-full max-w-xs flex items-center">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
                 <Input
                   placeholder="Search..."
                   className="pl-10 w-full bg-gray-100/80 border-1 border-gray-200 text-gray-500 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9 text-sm"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 />
               </div>
               <SignedIn>
@@ -83,7 +88,7 @@ const Header = () => {
                     appearance={{
                       elements: {
                         avatarBox:
-                          "w-8 h-8 rounded-full border-2 border-gray-200",
+                          'w-8 h-8 rounded-full border-2 border-gray-200',
                       },
                     }}
                   />
@@ -95,40 +100,43 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/news"
-                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/news")
-                    ? "text-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
-                  }`}
+                className={`text-sm font-medium transition-colors duration-200 relative ${
+                  isActive('/news')
+                    ? 'text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 News
-                {isActive("/news") && (
+                {isActive('/news') && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
 
               <Link
                 to="/events"
-                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/events")
-                    ? "text-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
-                  }`}
+                className={`text-sm font-medium transition-colors duration-200 relative ${
+                  isActive('/events')
+                    ? 'text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 Events
-                {isActive("/events") && (
+                {isActive('/events') && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
 
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${isActive("/database")
-                      ? "text-gray-900"
-                      : "text-gray-600 hover:text-gray-900"
-                    }`}
+                  className={`text-sm font-medium transition-colors duration-200 flex items-center gap-1 relative ${
+                    isActive('/database')
+                      ? 'text-gray-900'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
                   Database
                   <ChevronDown className="h-3 w-3" />
-                  {isActive("/database") && (
+                  {isActive('/database') && (
                     <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                   )}
                 </DropdownMenuTrigger>
@@ -154,13 +162,14 @@ const Header = () => {
 
               <Link
                 to="/policies"
-                className={`text-sm font-medium transition-colors duration-200 relative ${isActive("/policies")
-                    ? "text-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
-                  }`}
+                className={`text-sm font-medium transition-colors duration-200 relative ${
+                  isActive('/policies')
+                    ? 'text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 Policies Hub
-                {isActive("/policies") && (
+                {isActive('/policies') && (
                   <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />
                 )}
               </Link>
@@ -211,11 +220,14 @@ const Header = () => {
 
             {/* Desktop Search & Auth */}
             <div className="hidden md:flex items-center space-x-4">
-              <div className="relative border border-gray-200 rounded-full bg-white/80 hover:bg-white transition-colors duration-200">
+              <div className="relative border border-gray-200 rounded-full bg-white/80 hover:bg-white transition-colors duration-200 flex items-center">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
                   placeholder="Search..."
                   className="pl-10 w-64 bg-gray-50/80 border-0 focus:ring-1 focus:ring-purple-500/30 focus:bg-white rounded-full h-9"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 />
               </div>
 
@@ -229,7 +241,7 @@ const Header = () => {
                   appearance={{
                     elements: {
                       avatarBox:
-                        "w-8 h-8 rounded-full border-2 border-gray-200 hover:border-purple-300 transition-colors",
+                        'w-8 h-8 rounded-full border-2 border-gray-200 hover:border-purple-300 transition-colors',
                     },
                   }}
                 />
@@ -265,26 +277,18 @@ const Header = () => {
                             />
                           </div>
                         </Link>
-
                       </div>
-                      {/* <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="p-2 hover:bg-gray-100 rounded-full"
-                      >
-                        <X className="h-4 w-4 text-gray-700" />
-                      </Button> */}
                     </div>
 
                     {/* Mobile Navigation */}
                     <nav className="flex flex-col px-6 py-4 space-y-1">
                       <Link
                         to="/news"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/news")
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                          }`}
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
+                          isActive('/news')
+                            ? 'bg-gray-100 text-gray-900'
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         News
@@ -292,10 +296,11 @@ const Header = () => {
 
                       <Link
                         to="/events"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/events")
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                          }`}
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
+                          isActive('/events')
+                            ? 'bg-gray-100 text-gray-900'
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Events
@@ -323,10 +328,11 @@ const Header = () => {
 
                       <Link
                         to="/policies"
-                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${isActive("/policies")
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                          }`}
+                        className={`py-3 px-4 rounded-xl font-medium transition-colors duration-200 ${
+                          isActive('/policies')
+                            ? 'bg-gray-100 text-gray-900'
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Policies Hub
