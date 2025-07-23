@@ -131,28 +131,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="flex-1 min-w-[220px] flex flex-col gap-4">
-            <h4 className="font-semibold mb-4 text-purple-300">
-              Stay in the loop
-            </h4>
-            <p className="text-gray-400 text-sm mb-2">
-              Subscribe to our newsletter for the latest updates.
-            </p>
-            <form className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="bg-white/10 border border-purple-400/30 text-white placeholder:text-gray-400 focus:border-purple-400 focus:ring-purple-400/20"
-              />
-              <Button
-                type="submit"
-                className="royal-gradient text-white font-semibold px-4"
-              >
-                Subscribe
-              </Button>
-            </form>
-          </div>
+         
         </div>
         <div className="border-t border-purple-800/40 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-gray-400 text-xs">
           <span>© 2025 Start Hub. All rights reserved.</span>
